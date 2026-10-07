@@ -1,7 +1,7 @@
 """Shared helpers for generating gopherlings exercises."""
 import json, os, pathlib
 
-ROOT = pathlib.Path(__file__).parent
+ROOT = pathlib.Path(__file__).parent.parent  # generators live in maintainer/
 EX_DIR = ROOT / "exercises"
 SOL_DIR = ROOT / "solutions"
 PRISTINE_DIR = ROOT / ".pristine"

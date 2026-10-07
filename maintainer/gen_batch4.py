@@ -821,14 +821,14 @@ import (
 
 func TestFetchAll(t *testing.T) {
 \tsrv := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-\t\ttime.Sleep(60 * time.Millisecond)
+\t\ttime.Sleep(100 * time.Millisecond)
 \t\t_, _ = w.Write([]byte(strings.Repeat("x", 10)))
 \t}))
 \tdefer srv.Close()
 \turls := []string{srv.URL + "/a", srv.URL + "/b", srv.URL + "/c", srv.URL + "/d"}
 \tstart := time.Now()
 \tgot := FetchAll(urls, 4)
-\tif time.Since(start) > 150*time.Millisecond {
+\tif time.Since(start) > 250*time.Millisecond {
 \t\tt.Fatalf("too slow: fetches look sequential (%v)", time.Since(start))
 \t}
 \tfor _, u := range urls {

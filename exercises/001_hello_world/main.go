@@ -3,8 +3,6 @@
 // TODO: fix the compile error so the program prints the greeting.
 package main
 
-import "fmt"
-
 func main() {
 	fmt.Println("hello, gopher")
 }

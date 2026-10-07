@@ -862,10 +862,16 @@ ex("073_mutex", "concurrency", "test",
    "What happens when many goroutines touch one variable?",
    {"main.go": """// 073: sync.Mutex serializes access. Lock/Unlock around the shared
 // section; run `go test -race` to prove the race is gone.
+// A read-modify-write like count++ is three separate steps, and the
+// scheduler can slip another goroutine between them (Gosched below
+// stands in for real preemption).
 // TODO: guard the counter so the total is exact.
 package main
 
-import "sync"
+import (
+\t"runtime"
+\t"sync"
+)
 
 func Total(n int) int {
 \tvar wg sync.WaitGroup
@@ -874,7 +880,9 @@ func Total(n int) int {
 \t\twg.Add(1)
 \t\tgo func() {
 \t\t\tdefer wg.Done()
-\t\t\tcount++
+\t\t\ttmp := count
+\t\t\truntime.Gosched()
+\t\t\tcount = tmp + 1
 \t\t}()
 \t}
 \twg.Wait()
@@ -909,28 +917,33 @@ func Total(n int) int {
 import "testing"
 
 func TestTotal(t *testing.T) {
-\tif Total(2000) != 2000 {
-\t\tt.Fatalf("got %d want 2000 (lost updates without a mutex?)", Total(2000))
+\tif got := Total(2000); got != 2000 {
+\t\tt.Fatalf("got %d want 2000 (lost updates without a mutex?)", got)
 \t}
 }
 """})
-# broken loses updates -> almost certainly < 2000. Small flake chance of exactly 2000? Practically zero with 2000 goroutines.
 
 ex("074_atomic", "concurrency", "test",
    "When is atomic enough instead of a mutex?",
    {"main.go": """// 074: sync/atomic gives lock-free counters/flags. Use for a single
-// integer; reach for Mutex for compound state.
+// integer; reach for Mutex for compound state. One atomic.AddInt64 is
+// a single indivisible step; a separate load plus store is not.
 // TODO: increment atomically.
 package main
 
-import "sync/atomic"
+import (
+\t"runtime"
+\t"sync/atomic"
+)
 
 func AtomicTotal(n int) int64 {
 \tvar c int64
 \tdone := make(chan struct{}, n)
 \tfor i := 0; i < n; i++ {
 \t\tgo func() {
-\t\t\tc++
+\t\t\ttmp := c
+\t\t\truntime.Gosched()
+\t\t\tc = tmp + 1
 \t\t\tdone <- struct{}{}
 \t\t}()
 \t}
@@ -966,12 +979,11 @@ func AtomicTotal(n int) int64 {
 import "testing"
 
 func TestAtomicTotal(t *testing.T) {
-\tif AtomicTotal(2000) != 2000 {
-\t\tt.Fatalf("got %d", AtomicTotal(2000))
+\tif got := AtomicTotal(2000); got != 2000 {
+\t\tt.Fatalf("got %d want 2000", got)
 \t}
 }
 """})
-# broken c++ racy -> usually < 2000. Good.
 
 ex("075_ctx_cancel", "concurrency", "test",
    "How does a goroutine learn its work was cancelled?",
