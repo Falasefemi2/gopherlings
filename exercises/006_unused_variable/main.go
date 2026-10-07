@@ -6,5 +6,5 @@ import "fmt"
 
 func main() {
 	x := 42
-	fmt.Println("answer: ...")
+	fmt.Println("answer:", x)
 }

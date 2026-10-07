@@ -5,7 +5,7 @@ package main
 import "fmt"
 
 func main() {
-	const x = 1
+	x := 1
 	x = 2
 	fmt.Println(x)
 }

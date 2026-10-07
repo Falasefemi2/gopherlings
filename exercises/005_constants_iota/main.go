@@ -4,7 +4,7 @@
 package main
 
 const (
-	A = 1
-	B = 2
-	C = 3
+	A = iota
+	B
+	C
 )

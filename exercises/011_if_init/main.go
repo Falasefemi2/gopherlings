@@ -4,8 +4,8 @@
 package main
 
 func Grade(score int) string {
-	if s := score; s >= 60 {
-		return "pass"
+	if s := score; s <= 40 {
+		return "fail"
 	}
 	return "pass"
 }

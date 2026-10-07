@@ -5,9 +5,9 @@ package main
 func Day(n int) string {
 	switch n {
 	case 1:
-		return "Monday"
+		return "Mon"
 	case 2:
-		return "Tuesday"
+		return "Tue"
 	default:
 		return "?"
 	}

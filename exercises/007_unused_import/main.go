@@ -9,5 +9,5 @@ import (
 )
 
 func main() {
-	fmt.Println("hello")
+	fmt.Println(strings.ToUpper("hello"))
 }

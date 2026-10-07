@@ -3,6 +3,8 @@
 // TODO: return the decimal text of n.
 package main
 
+import "strconv"
+
 func Itoa(n int) string {
-	return string(n)
+	return strconv.Itoa(n)
 }

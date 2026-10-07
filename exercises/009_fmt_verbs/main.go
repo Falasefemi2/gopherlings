@@ -6,5 +6,5 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Printf("%s\n", 42)
+	fmt.Printf("answer: %d\n", 42)
 }
