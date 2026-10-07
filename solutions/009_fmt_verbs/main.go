@@ -5,5 +5,5 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Printf("%d\n", 42)
+	fmt.Printf("answer: %d\n", 42)
 }

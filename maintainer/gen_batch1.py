@@ -273,7 +273,7 @@ package main
 import "fmt"
 
 func main() {
-\tfmt.Printf("%d\\n", 42)
+\tfmt.Printf("answer: %d\\n", 42)
 }
 """},
    expected="answer: 42")
