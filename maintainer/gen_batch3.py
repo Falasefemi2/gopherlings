@@ -784,15 +784,24 @@ func Race(fast, slow <-chan string) string {
 """},
    {"exercise_test.go": """package main
 
-import "testing"
+import (
+\t"testing"
+\t"time"
+)
 
 func TestRace(t *testing.T) {
 \tfast := make(chan string, 1)
-\tslow := make(chan string, 1)
+\tslow := make(chan string) // never sends: only fast is ready
 \tfast <- "fast"
-\tslow <- "slow"
-\tif Race(fast, slow) != "fast" {
-\t\tt.Fatal("fast channel should win")
+\tdone := make(chan string, 1)
+\tgo func() { done <- Race(fast, slow) }()
+\tselect {
+\tcase got := <-done:
+\t\tif got != "fast" {
+\t\t\tt.Fatalf("got %q want fast: slow answered first?", got)
+\t\t}
+\tcase <-time.After(500 * time.Millisecond):
+\t\tt.Fatal("blocked: nobody answered")
 \t}
 }
 """})
