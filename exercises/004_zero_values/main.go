@@ -4,5 +4,5 @@
 package main
 
 func Zero() (int, string, bool) {
-	return 1, "x", true
+	return 0, "", false
 }

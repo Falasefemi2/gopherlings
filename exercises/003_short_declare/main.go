@@ -7,6 +7,6 @@ import "fmt"
 
 func main() {
 	name := "a"
-	name := "b"
+	name = "b"
 	fmt.Println(name)
 }

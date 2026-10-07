@@ -5,6 +5,6 @@ package main
 import "fmt"
 
 func main() {
-	var name string = "world"
+	var name string = "gopher"
 	fmt.Println("hello " + name)
 }
