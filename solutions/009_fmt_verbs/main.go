@@ -1,0 +1,9 @@
+// 009: fmt verbs are typed: %d for ints, %s for strings, %v for
+// anything, %q for quoted strings. Wrong verbs show up in output.
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Printf("%d\n", 42)
+}

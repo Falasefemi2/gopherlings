@@ -1,0 +1,677 @@
+[
+  {
+    "id": "001",
+    "dir": "001_hello_world",
+    "mode": "run",
+    "hint": "Look at the top of the file. What package provides Println?",
+    "topic": "basics",
+    "expectedOutput": "hello, gopher"
+  },
+  {
+    "id": "002",
+    "dir": "002_vars_var",
+    "mode": "run",
+    "hint": "What value does the variable hold when it is printed?",
+    "topic": "basics",
+    "expectedOutput": "hello gopher"
+  },
+  {
+    "id": "003",
+    "dir": "003_short_declare",
+    "mode": "run",
+    "hint": "Read the compiler message: when is := allowed vs plain =?",
+    "topic": "basics",
+    "expectedOutput": "b"
+  },
+  {
+    "id": "004",
+    "dir": "004_zero_values",
+    "mode": "test",
+    "hint": "What are the zero values of int, string and bool?",
+    "topic": "basics"
+  },
+  {
+    "id": "005",
+    "dir": "005_constants_iota",
+    "mode": "test",
+    "hint": "How does iota count inside a const block?",
+    "topic": "basics"
+  },
+  {
+    "id": "006",
+    "dir": "006_unused_variable",
+    "mode": "run",
+    "hint": "Go refuses to compile unused locals. Either use x or remove it.",
+    "topic": "basics",
+    "expectedOutput": "answer: 42"
+  },
+  {
+    "id": "007",
+    "dir": "007_unused_import",
+    "mode": "run",
+    "hint": "Same rule for imports. Either use strings or drop the import.",
+    "topic": "basics",
+    "expectedOutput": "HELLO"
+  },
+  {
+    "id": "008",
+    "dir": "008_conversions",
+    "mode": "test",
+    "hint": "What does string(65) produce? How do you convert a number to its decimal text?",
+    "topic": "basics"
+  },
+  {
+    "id": "009",
+    "dir": "009_fmt_verbs",
+    "mode": "run",
+    "hint": "Which verb formats an int in decimal? Check what %s does to an int.",
+    "topic": "basics",
+    "expectedOutput": "answer: 42"
+  },
+  {
+    "id": "010",
+    "dir": "010_const_vs_var",
+    "mode": "run",
+    "hint": "Can a const be reassigned? What keyword allows reassignment?",
+    "topic": "basics",
+    "expectedOutput": "2"
+  },
+  {
+    "id": "011",
+    "dir": "011_if_init",
+    "mode": "test",
+    "hint": "Look at which branch runs for a failing score.",
+    "topic": "control-flow"
+  },
+  {
+    "id": "012",
+    "dir": "012_switch_basic",
+    "mode": "test",
+    "hint": "Which case matches 1? What should each case return?",
+    "topic": "control-flow"
+  },
+  {
+    "id": "013",
+    "dir": "013_switch_fallthrough",
+    "mode": "test",
+    "hint": "Does Go fall through by default? Is that keyword helping here?",
+    "topic": "control-flow"
+  },
+  {
+    "id": "014",
+    "dir": "014_type_switch",
+    "mode": "test",
+    "hint": "What happens when v holds an int and you assert v.(string)?",
+    "topic": "control-flow"
+  },
+  {
+    "id": "015",
+    "dir": "015_for_loop",
+    "mode": "test",
+    "hint": "Should the loop include n itself? Check the condition.",
+    "topic": "control-flow"
+  },
+  {
+    "id": "016",
+    "dir": "016_range_slice",
+    "mode": "test",
+    "hint": "When you range with two vars, what is each one a copy of?",
+    "topic": "control-flow"
+  },
+  {
+    "id": "017",
+    "dir": "017_range_int",
+    "mode": "test",
+    "hint": "How many values does `for i := range n` yield? Compare with <=.",
+    "topic": "control-flow"
+  },
+  {
+    "id": "018",
+    "dir": "018_labels",
+    "mode": "test",
+    "hint": "Which loop does plain break exit? How do you exit both?",
+    "topic": "control-flow"
+  },
+  {
+    "id": "019",
+    "dir": "019_defer_lifo",
+    "mode": "run",
+    "hint": "When do deferred calls run, and in what order?",
+    "topic": "control-flow",
+    "expectedOutput": "321"
+  },
+  {
+    "id": "020",
+    "dir": "020_defer_in_loop",
+    "mode": "test",
+    "hint": "When does a defer inside a loop run? What does that do to maxOpen?",
+    "topic": "control-flow"
+  },
+  {
+    "id": "021",
+    "dir": "021_multiple_returns",
+    "mode": "test",
+    "hint": "Which part is returned first? Check the order.",
+    "topic": "functions"
+  },
+  {
+    "id": "022",
+    "dir": "022_named_returns",
+    "mode": "test",
+    "hint": "Which named result should get which input?",
+    "topic": "functions"
+  },
+  {
+    "id": "023",
+    "dir": "023_variadics",
+    "mode": "test",
+    "hint": "What does nums hold inside the function? What should you total?",
+    "topic": "functions"
+  },
+  {
+    "id": "024",
+    "dir": "024_closures",
+    "mode": "test",
+    "hint": "What state does the returned func close over?",
+    "topic": "functions"
+  },
+  {
+    "id": "025",
+    "dir": "025_func_values",
+    "mode": "test",
+    "hint": "What is f for? When should it be called?",
+    "topic": "functions"
+  },
+  {
+    "id": "026",
+    "dir": "026_method_values",
+    "mode": "test",
+    "hint": "Does Inc actually mutate the counter? Check the receiver.",
+    "topic": "functions"
+  },
+  {
+    "id": "027",
+    "dir": "027_arrays_slices",
+    "mode": "test",
+    "hint": "Is [3]int the same type as []int? Which one can grow?",
+    "topic": "collections"
+  },
+  {
+    "id": "028",
+    "dir": "028_len_cap",
+    "mode": "test",
+    "hint": "What do len and cap report for make([]int, 2, 5)?",
+    "topic": "collections"
+  },
+  {
+    "id": "029",
+    "dir": "029_append_alias",
+    "mode": "test",
+    "hint": "Do a and b share a backing array? What does append reuse?",
+    "topic": "collections"
+  },
+  {
+    "id": "030",
+    "dir": "030_nil_map_write",
+    "mode": "test",
+    "hint": "What is the zero value of a map? Can you write to it?",
+    "topic": "collections"
+  },
+  {
+    "id": "031",
+    "dir": "031_comma_ok",
+    "mode": "test",
+    "hint": "How do you tell a stored zero from a missing key?",
+    "topic": "collections"
+  },
+  {
+    "id": "032",
+    "dir": "032_map_order",
+    "mode": "test",
+    "hint": "Is map iteration order deterministic? How do you get sorted keys?",
+    "topic": "collections"
+  },
+  {
+    "id": "033",
+    "dir": "033_slices_pkg",
+    "mode": "test",
+    "hint": "Which stdlib package sorts a slice without writing the loop?",
+    "topic": "collections"
+  },
+  {
+    "id": "034",
+    "dir": "034_maps_pkg",
+    "mode": "test",
+    "hint": "Which stdlib package clones a map in one call?",
+    "topic": "collections"
+  },
+  {
+    "id": "035",
+    "dir": "035_slice_expr",
+    "mode": "test",
+    "hint": "What does s[1:3] share with s? Where does append write?",
+    "topic": "collections"
+  },
+  {
+    "id": "036",
+    "dir": "036_bytes_runes",
+    "mode": "test",
+    "hint": "Is len(s) bytes or characters? What does ranging yield?",
+    "topic": "strings"
+  },
+  {
+    "id": "037",
+    "dir": "037_builder",
+    "mode": "test",
+    "hint": "What is the efficient way to concatenate in a loop?",
+    "topic": "strings"
+  },
+  {
+    "id": "038",
+    "dir": "038_strconv",
+    "mode": "test",
+    "hint": "Which strconv func parses, and what else does it return?",
+    "topic": "strings"
+  },
+  {
+    "id": "039",
+    "dir": "039_utf8",
+    "mode": "test",
+    "hint": "How do you decode the first rune and its width?",
+    "topic": "strings"
+  },
+  {
+    "id": "040",
+    "dir": "040_struct_literal",
+    "mode": "test",
+    "hint": "Which literal form breaks when a field is added?",
+    "topic": "structs"
+  },
+  {
+    "id": "041",
+    "dir": "041_receivers",
+    "mode": "test",
+    "hint": "Should Scale mutate the struct? Which receiver allows that?",
+    "topic": "structs"
+  },
+  {
+    "id": "042",
+    "dir": "042_embedding",
+    "mode": "test",
+    "hint": "How do promoted methods reach the outer struct?",
+    "topic": "structs"
+  },
+  {
+    "id": "043",
+    "dir": "043_struct_tags",
+    "mode": "test",
+    "hint": "How does encoding/json know to use lowercase keys?",
+    "topic": "structs"
+  },
+  {
+    "id": "044",
+    "dir": "044_comparable_struct",
+    "mode": "test",
+    "hint": "Which field types keep a struct comparable with ==?",
+    "topic": "structs"
+  },
+  {
+    "id": "045",
+    "dir": "045_constructors",
+    "mode": "test",
+    "hint": "Why return a pointer and validate in NewUser?",
+    "topic": "structs"
+  },
+  {
+    "id": "046",
+    "dir": "046_pointers_basic",
+    "mode": "test",
+    "hint": "What do & and * do? Which one follows the pointer?",
+    "topic": "pointers"
+  },
+  {
+    "id": "047",
+    "dir": "047_nil_ptr",
+    "mode": "test",
+    "hint": "What is the zero value of a pointer? When is dereference safe?",
+    "topic": "pointers"
+  },
+  {
+    "id": "048",
+    "dir": "048_mutate_via_ptr",
+    "mode": "test",
+    "hint": "Who sees the change when you reassign the pointer vs the pointee?",
+    "topic": "pointers"
+  },
+  {
+    "id": "049",
+    "dir": "049_iface_implicit",
+    "mode": "test",
+    "hint": "Where is the `implements` keyword? How does the compiler check it?",
+    "topic": "interfaces"
+  },
+  {
+    "id": "050",
+    "dir": "050_any_assert",
+    "mode": "test",
+    "hint": "What is any an alias for? How do you get the concrete value back?",
+    "topic": "interfaces"
+  },
+  {
+    "id": "051",
+    "dir": "051_type_assert_ok",
+    "mode": "test",
+    "hint": "What happens on a failed assertion without the ok form?",
+    "topic": "interfaces"
+  },
+  {
+    "id": "052",
+    "dir": "052_nil_iface_trap",
+    "mode": "test",
+    "hint": "Can an interface holding a nil pointer be == nil?",
+    "topic": "interfaces"
+  },
+  {
+    "id": "053",
+    "dir": "053_stringer",
+    "mode": "test",
+    "hint": "Which method makes a type print itself with fmt?",
+    "topic": "interfaces"
+  },
+  {
+    "id": "054",
+    "dir": "054_reader",
+    "mode": "test",
+    "hint": "What does Read return at end of input? How many bytes were read?",
+    "topic": "interfaces"
+  },
+  {
+    "id": "055",
+    "dir": "055_small_iface",
+    "mode": "test",
+    "hint": "Why accept io.Writer instead of *os.File?",
+    "topic": "interfaces"
+  },
+  {
+    "id": "056",
+    "dir": "056_error_values",
+    "mode": "test",
+    "hint": "What does a nil error mean? What should Fail return on success?",
+    "topic": "errors"
+  },
+  {
+    "id": "057",
+    "dir": "057_wrap_w",
+    "mode": "test",
+    "hint": "Which verb preserves the chain for errors.Is/As?",
+    "topic": "errors"
+  },
+  {
+    "id": "058",
+    "dir": "058_errors_is",
+    "mode": "test",
+    "hint": "Should you compare errors with == when they may be wrapped?",
+    "topic": "errors"
+  },
+  {
+    "id": "059",
+    "dir": "059_errors_as",
+    "mode": "test",
+    "hint": "How do you extract a *TypedError from a wrapped chain?",
+    "topic": "errors"
+  },
+  {
+    "id": "060",
+    "dir": "060_errors_join",
+    "mode": "test",
+    "hint": "How do you combine several errors and still match each one?",
+    "topic": "errors"
+  },
+  {
+    "id": "061",
+    "dir": "061_panic_recover",
+    "mode": "test",
+    "hint": "Where must recover run to catch a panic? What should Safe return?",
+    "topic": "errors"
+  },
+  {
+    "id": "062",
+    "dir": "062_sentinel_typed",
+    "mode": "test",
+    "hint": "When is a plain sentinel enough, and when do you need As?",
+    "topic": "errors"
+  },
+  {
+    "id": "063",
+    "dir": "063_generic_func",
+    "mode": "test",
+    "hint": "Where do type parameters go? What does the body work for?",
+    "topic": "generics"
+  },
+  {
+    "id": "064",
+    "dir": "064_comparable",
+    "mode": "test",
+    "hint": "Which constraint allows == on values of type T?",
+    "topic": "generics"
+  },
+  {
+    "id": "065",
+    "dir": "065_ordered",
+    "mode": "test",
+    "hint": "Which stdlib constraint allows < on type T?",
+    "topic": "generics"
+  },
+  {
+    "id": "066",
+    "dir": "066_generic_stack",
+    "mode": "test",
+    "hint": "How does a generic type declare its parameter?",
+    "topic": "generics"
+  },
+  {
+    "id": "067",
+    "dir": "067_no_generics",
+    "mode": "test",
+    "hint": "Could a plain interface or concrete type do here?",
+    "topic": "generics"
+  },
+  {
+    "id": "068",
+    "dir": "068_goroutines",
+    "mode": "test",
+    "hint": "How do you wait for goroutines to finish before returning?",
+    "topic": "concurrency"
+  },
+  {
+    "id": "069",
+    "dir": "069_channels",
+    "mode": "test",
+    "hint": "Who sends, who receives, and who should close?",
+    "topic": "concurrency"
+  },
+  {
+    "id": "070",
+    "dir": "070_buffered",
+    "mode": "test",
+    "hint": "When does a send block? What does capacity change?",
+    "topic": "concurrency"
+  },
+  {
+    "id": "071",
+    "dir": "071_select",
+    "mode": "test",
+    "hint": "How do you wait on several channels at once, with a timeout?",
+    "topic": "concurrency"
+  },
+  {
+    "id": "072",
+    "dir": "072_waitgroup",
+    "mode": "test",
+    "hint": "When do you Add, Done and Wait? What happens if Add is late?",
+    "topic": "concurrency"
+  },
+  {
+    "id": "073",
+    "dir": "073_mutex",
+    "mode": "test",
+    "hint": "What happens when many goroutines touch one variable?",
+    "topic": "concurrency"
+  },
+  {
+    "id": "074",
+    "dir": "074_atomic",
+    "mode": "test",
+    "hint": "When is atomic enough instead of a mutex?",
+    "topic": "concurrency"
+  },
+  {
+    "id": "075",
+    "dir": "075_ctx_cancel",
+    "mode": "test",
+    "hint": "How does a goroutine learn its work was cancelled?",
+    "topic": "concurrency"
+  },
+  {
+    "id": "076",
+    "dir": "076_ctx_timeout",
+    "mode": "test",
+    "hint": "How do you bound how long an operation may take?",
+    "topic": "concurrency"
+  },
+  {
+    "id": "077",
+    "dir": "077_worker_pool",
+    "mode": "test",
+    "hint": "How do N workers share one jobs channel and report results?",
+    "topic": "concurrency"
+  },
+  {
+    "id": "078",
+    "dir": "078_fan_in",
+    "mode": "test",
+    "hint": "How do you merge two channels into one?",
+    "topic": "concurrency"
+  },
+  {
+    "id": "079",
+    "dir": "079_loop_capture",
+    "mode": "test",
+    "hint": "Which variable does each closure share here?",
+    "topic": "concurrency"
+  },
+  {
+    "id": "080",
+    "dir": "080_errgroup_hand",
+    "mode": "test",
+    "hint": "How do you collect the first error from many goroutines?",
+    "topic": "concurrency"
+  },
+  {
+    "id": "081",
+    "dir": "081_chan_range_close",
+    "mode": "test",
+    "hint": "Who closes the channel so `for range` can finish?",
+    "topic": "concurrency"
+  },
+  {
+    "id": "082",
+    "dir": "082_json_marshal",
+    "mode": "test",
+    "hint": "Which fields does encoding/json include? What controls key names?",
+    "topic": "stdlib"
+  },
+  {
+    "id": "083",
+    "dir": "083_json_unmarshal",
+    "mode": "test",
+    "hint": "What happens to unknown or missing fields on decode?",
+    "topic": "stdlib"
+  },
+  {
+    "id": "084",
+    "dir": "084_http_handler",
+    "mode": "test",
+    "hint": "How do you set the status code and body in a handler?",
+    "topic": "stdlib"
+  },
+  {
+    "id": "085",
+    "dir": "085_time_format",
+    "mode": "test",
+    "hint": "Why does Go format time with 01-02 15:04:05 instead of %Y-%m-%d?",
+    "topic": "stdlib"
+  },
+  {
+    "id": "086",
+    "dir": "086_os_env",
+    "mode": "test",
+    "hint": "How do you read an env var and distinguish unset from empty?",
+    "topic": "stdlib"
+  },
+  {
+    "id": "087",
+    "dir": "087_bufio_scan",
+    "mode": "test",
+    "hint": "How do you read a stream line by line? When do you check Err?",
+    "topic": "stdlib"
+  },
+  {
+    "id": "088",
+    "dir": "088_flag_slog",
+    "mode": "run",
+    "hint": "How do you declare a flag with a default and parse it?",
+    "topic": "stdlib",
+    "expectedOutput": "port=8080"
+  },
+  {
+    "id": "089",
+    "dir": "089_sort_pkg",
+    "mode": "test",
+    "hint": "When do you reach for sort.Slice vs the slices package?",
+    "topic": "stdlib"
+  },
+  {
+    "id": "090",
+    "dir": "090_table_tests",
+    "mode": "test",
+    "hint": "How do you structure one test func over many cases?",
+    "topic": "testing"
+  },
+  {
+    "id": "091",
+    "dir": "091_helper_subtests",
+    "mode": "test",
+    "hint": "What does t.Helper() do for failure lines?",
+    "topic": "testing"
+  },
+  {
+    "id": "092",
+    "dir": "092_bench_fuzz",
+    "mode": "test",
+    "hint": "What do benchmarks measure, and what does fuzzing explore?",
+    "topic": "testing"
+  },
+  {
+    "id": "093",
+    "dir": "093_lru_cache",
+    "mode": "test",
+    "hint": "How do a map plus a list give O(1) get, put and eviction?",
+    "topic": "capstone"
+  },
+  {
+    "id": "094",
+    "dir": "094_url_fetcher",
+    "mode": "test",
+    "hint": "How do a semaphore and WaitGroup bound concurrency and collect errors?",
+    "topic": "capstone"
+  },
+  {
+    "id": "095",
+    "dir": "095_cli_json",
+    "mode": "run",
+    "hint": "How do flags, JSON output and exit codes fit in a tiny CLI?",
+    "topic": "capstone",
+    "expectedOutput": "{\"greeting\": \"hi gopher\"}"
+  }
+]
