@@ -4,8 +4,8 @@
 package main
 
 func Double(ns []int) []int {
-	for _, v := range ns {
-		v *= 2
+	for i := range ns {
+		ns[i] *= 2
 	}
 	return ns
 }

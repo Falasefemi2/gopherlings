@@ -6,6 +6,12 @@ package main
 import "fmt"
 
 func Describe(v any) string {
-	s := v.(string)
-	return "str:" + s
+	switch s := v.(type) {
+	case string:
+		return "str:" + s
+	case int:
+		return fmt.Sprintf("int:%d", s)
+	default:
+		return "unknown"
+	}
 }

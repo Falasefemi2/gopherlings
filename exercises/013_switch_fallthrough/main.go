@@ -7,8 +7,8 @@ func Letter(score int) string {
 	switch {
 	case score >= 90:
 		return "A"
-	case score >= 80:
-		fallthrough
+	case score >= 85:
+		return "B"
 	case score >= 70:
 		return "C"
 	default:
