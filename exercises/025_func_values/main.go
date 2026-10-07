@@ -3,5 +3,6 @@
 package main
 
 func Apply(f func(int) int, v int) int {
-	return v
+	a := f(v)
+	return a
 }

@@ -4,7 +4,9 @@
 package main
 
 func Counter() func() int {
+	sum := 0
 	return func() int {
-		return 0
+		sum++
+		return sum
 	}
 }

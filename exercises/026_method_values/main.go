@@ -5,7 +5,7 @@ package main
 
 type Counter2 struct{ N int }
 
-func (c Counter2) Inc() { c.N++ }
+func (c *Counter2) Inc() { c.N++ }
 
 func TwoIncs() int {
 	c := &Counter2{}

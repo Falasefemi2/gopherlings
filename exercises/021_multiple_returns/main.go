@@ -10,5 +10,5 @@ func SplitHostPort(s string) (string, string) {
 	if len(parts) != 2 {
 		return "", ""
 	}
-	return parts[1], parts[0]
+	return parts[0], parts[1]
 }

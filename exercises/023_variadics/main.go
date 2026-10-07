@@ -4,5 +4,9 @@
 package main
 
 func Sum(nums ...int) int {
-	return len(nums)
+	sum := 0
+	for _, n := range nums {
+		sum += n
+	}
+	return sum
 }

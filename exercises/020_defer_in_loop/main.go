@@ -10,7 +10,7 @@ func MaxOpen(n int) int {
 		if open > max {
 			max = open
 		}
-		defer func() { open-- }()
+		open--
 	}
 	return max
 }

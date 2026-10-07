@@ -5,7 +5,7 @@ package main
 
 func First(n int) []int {
 	var out []int
-	for i := 0; i <= n; i++ {
+	for i := 0; i < n; i++ {
 		out = append(out, i)
 	}
 	return out

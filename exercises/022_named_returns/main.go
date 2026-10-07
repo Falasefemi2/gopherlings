@@ -3,8 +3,6 @@
 // TODO: actually swap a and b.
 package main
 
-func Swap(a, b int) (x, y int) {
-	x = a
-	y = b
-	return
+func Swap(a, b int) (int, int) {
+	return b, a
 }
