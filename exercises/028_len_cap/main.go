@@ -5,6 +5,7 @@ package main
 
 func LenCap() (int, int) {
 	s := make([]int, 2, 5)
-	_ = s
-	return 5, 2
+	a := len(s)
+	b := cap(s)
+	return a, b
 }

@@ -2,6 +2,9 @@
 // style helpers. TODO: return an equal but independent copy.
 package main
 
+import "maps"
+
 func Clone(m map[string]int) map[string]int {
-	return m
+	clone := maps.Clone(m)
+	return clone
 }

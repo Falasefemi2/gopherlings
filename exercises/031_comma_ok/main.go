@@ -4,5 +4,6 @@
 package main
 
 func Lookup(m map[string]int, k string) (int, bool) {
-	return m[k], true
+	v, ok := m[k]
+	return v, ok
 }

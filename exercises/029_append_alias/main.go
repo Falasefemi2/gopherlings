@@ -4,7 +4,7 @@
 package main
 
 func DoubleAll(ns []int) []int {
-	out := ns[:0]
+	out := make([]int, 0, len(ns))
 	for _, v := range ns {
 		out = append(out, v*2)
 	}

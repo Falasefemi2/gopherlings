@@ -3,6 +3,8 @@
 // TODO: return the slice 1..3 with length 3.
 package main
 
-func Nums() [3]int {
-	return [3]int{1, 2, 3}
+func Nums() []int {
+	a := [3]int{1, 2, 3}
+	b := a[0:3]
+	return b
 }

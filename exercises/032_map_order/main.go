@@ -10,6 +10,6 @@ func Keys(m map[string]int) []string {
 	for k := range m {
 		out = append(out, k)
 	}
-	_ = sort.Strings
+	sort.Strings(out)
 	return out
 }

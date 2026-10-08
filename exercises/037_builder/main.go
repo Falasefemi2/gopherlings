@@ -3,11 +3,20 @@
 // TODO: join the parts efficiently.
 package main
 
+import "strings"
+
 func Join(parts []string) string {
-	s := ""
-	for _, p := range parts {
-		s += p
+	if len(parts) == 0 {
+		return ""
 	}
-	_ = s
-	return "TODO"
+	totalLen := 0
+	for _, p := range parts {
+		totalLen += len(p)
+	}
+	var builder strings.Builder
+	builder.Grow(totalLen)
+	for _, p := range parts {
+		builder.WriteString(p)
+	}
+	return builder.String()
 }

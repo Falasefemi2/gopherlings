@@ -4,7 +4,7 @@
 package main
 
 func AppendFirstTwo(s []int, extra int) []int {
-	sub := s[:2]
+	sub := s[:2:2]
 	sub = append(sub, extra)
 	return sub
 }

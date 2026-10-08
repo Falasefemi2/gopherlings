@@ -3,6 +3,8 @@
 // TODO: count characters (runes), not bytes.
 package main
 
+import "unicode/utf8"
+
 func RuneLen(s string) int {
-	return len(s)
+	return utf8.RuneCountInString(s)
 }

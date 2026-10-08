@@ -3,6 +3,9 @@
 // TODO: return the sorted copy.
 package main
 
+import "sort"
+
 func Sorted(ns []int) []int {
+	sort.Ints(ns)
 	return ns
 }
