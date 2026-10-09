@@ -13,5 +13,5 @@ type Server struct {
 }
 
 func NewServer() *Server {
-	return &Server{Name: "web"}
+	return &Server{Name: "web", Logger: &Logger{}}
 }

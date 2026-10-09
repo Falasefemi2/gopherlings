@@ -4,5 +4,9 @@
 package main
 
 func DoubleAny(v any) int {
+	s, ok := v.(int)
+	if ok {
+		return s * 2
+	}
 	return 0
 }

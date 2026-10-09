@@ -6,8 +6,8 @@ package main
 import "encoding/json"
 
 type User struct {
-	Name string
-	Age  int
+	Name string `json:"name"`
+	Age  int    `json:"age"`
 }
 
 func ToJSON() string {

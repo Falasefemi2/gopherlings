@@ -4,5 +4,5 @@
 package main
 
 func Inc(p *int) {
-	p++
+	*p++
 }

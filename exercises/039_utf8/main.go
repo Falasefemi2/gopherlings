@@ -8,5 +8,5 @@ import "unicode/utf8"
 func FirstRune(s string) rune {
 	r, _ := utf8.DecodeRuneInString(s)
 	_ = r
-	return rune(s[0])
+	return r
 }

@@ -9,4 +9,8 @@ type Loud struct{ Who string }
 
 func Shout(g Greeter) string { return g.Greet() + "!" }
 
+func (l Loud) Greet() string {
+	return "hi " + l.Who
+}
+
 func Call() string { return Shout(Loud{Who: "bob"}) }

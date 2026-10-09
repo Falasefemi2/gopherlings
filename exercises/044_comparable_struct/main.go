@@ -3,11 +3,15 @@
 // TODO: keep the struct comparable and the equality true.
 package main
 
+import "reflect"
+
 type Key struct {
 	A string
 	B []int
 }
 
 func Same() bool {
-	return Key{A: "x", B: []int{1}} == Key{A: "x", B: []int{1}}
+	a := Key{A: "x", B: []int{1}}
+	b := Key{A: "x", B: []int{1}}
+	return reflect.DeepEqual(a, b)
 }

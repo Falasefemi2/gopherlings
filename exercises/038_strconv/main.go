@@ -6,6 +6,9 @@ package main
 import "strconv"
 
 func ParseAge(s string) (int, error) {
-	n, _ := strconv.Atoi(s)
+	n, err := strconv.Atoi(s)
+	if err != nil {
+		return 0, err
+	}
 	return n, nil
 }

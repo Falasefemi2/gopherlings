@@ -10,5 +10,5 @@ func Origin() Point {
 }
 
 func P() Point {
-	return Point{2, 1}
+	return Point{1, 2}
 }

@@ -8,6 +8,9 @@ import "errors"
 type Account struct{ Name string }
 
 func NewAccount(name string) (*Account, error) {
+	if name == "" {
+		return &Account{}, ErrName
+	}
 	return &Account{Name: name}, nil
 }
 

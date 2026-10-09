@@ -5,5 +5,5 @@ package main
 
 func Set(p *int) {
 	x := 99
-	p = &x
+	*p = x
 }
