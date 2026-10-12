@@ -9,5 +9,5 @@ func Fail(bad bool) error {
 	if bad {
 		return errors.New("bad")
 	}
-	return errors.New("ok")
+	return nil
 }

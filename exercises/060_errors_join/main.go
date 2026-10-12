@@ -11,5 +11,5 @@ var (
 )
 
 func Both() error {
-	return errors.Join()
+	return errors.Join(ErrA, ErrB)
 }

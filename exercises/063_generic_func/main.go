@@ -5,6 +5,8 @@ package main
 
 func First2[T any](s []T) T {
 	var zero T
-	_ = zero
-	panic("todo")
+	for _, v := range s {
+		return v
+	}
+	return zero
 }

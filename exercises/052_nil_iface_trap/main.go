@@ -10,7 +10,7 @@ func (b *Boom) Error() string { return "boom" }
 func Check(ok bool) error {
 	var b *Boom
 	if ok {
-		return b
+		return nil
 	}
 	_ = b
 	return b

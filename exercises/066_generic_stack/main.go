@@ -12,7 +12,9 @@ func (s *Stack[T]) Pop() (T, bool) {
 	if len(s.items) == 0 {
 		return zero, false
 	}
-	v := s.items[0]
-	s.items = s.items[1:]
+	index := len(s.items) - 1
+	v := s.items[index]
+	s.items[index] = zero
+	s.items = s.items[:index]
 	return v, true
 }

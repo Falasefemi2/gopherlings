@@ -8,8 +8,8 @@ import "io"
 type Three struct{}
 
 func (Three) Read(p []byte) (int, error) {
-	copy(p, "abcdef")
-	return 6, nil
+	n := copy(p, "abcdef")
+	return n, nil
 }
 
 func Read3(r io.Reader) (string, error) {

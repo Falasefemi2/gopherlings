@@ -7,4 +7,4 @@ import "fmt"
 
 type Person struct{ Name string }
 
-func Greet2(p Person) string { return fmt.Sprint(p) }
+func Greet2(p Person) string { return fmt.Sprintf("user:%v", p.Name) }

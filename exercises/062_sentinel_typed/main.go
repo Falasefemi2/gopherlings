@@ -13,7 +13,7 @@ func (e *BadValue) Error() string { return "bad:" + e.V }
 
 func Classify(v string) error {
 	if v == "" {
-		return &BadValue{V: v}
+		return ErrMissing
 	}
-	return ErrMissing
+	return &BadValue{V: v}
 }

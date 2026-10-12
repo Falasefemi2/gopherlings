@@ -4,6 +4,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 )
 
@@ -19,6 +20,10 @@ func Bad() error { return fmt.Errorf("req: %w", &FieldError{Field: "age", Msg: "
 func FieldOf(err error) string {
 	if err == nil {
 		return ""
+	}
+	var fe *FieldError
+	if errors.As(err, &fe) {
+		return fe.Field
 	}
 	return "?"
 }

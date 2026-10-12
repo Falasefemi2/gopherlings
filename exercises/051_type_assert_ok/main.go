@@ -4,5 +4,6 @@
 package main
 
 func AsInt(v any) (int, bool) {
-	return v.(int), true
+	s, ok := v.(int)
+	return s, ok
 }

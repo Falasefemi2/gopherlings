@@ -11,5 +11,5 @@ import (
 var ErrBase = errors.New("base")
 
 func Middle() error {
-	return fmt.Errorf("middle: %v", ErrBase)
+	return fmt.Errorf("middle: %w", ErrBase)
 }

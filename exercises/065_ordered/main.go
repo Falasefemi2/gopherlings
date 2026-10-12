@@ -3,6 +3,8 @@
 // TODO: return the smaller of a and b.
 package main
 
+import "cmp"
+
 func Min2[T cmp.Ordered](a, b T) T {
 	if a < b {
 		return a

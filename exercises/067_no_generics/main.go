@@ -5,6 +5,6 @@ package main
 
 import "fmt"
 
-func DescribeAny[T any](v T) string {
-	return fmt.Sprint(v)
+func DescribeAny(v any) string {
+	return fmt.Sprintf("%v (%T)", v, v)
 }

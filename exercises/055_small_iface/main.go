@@ -6,5 +6,9 @@ package main
 import "io"
 
 func Write3(w io.Writer) (int, error) {
-	return w.Write([]byte("hello world, this is long"))
+	v, err := w.Write([]byte("hey"))
+	if err != nil {
+		return 0, nil
+	}
+	return v, err
 }

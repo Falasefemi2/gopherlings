@@ -12,4 +12,4 @@ var ErrGone = errors.New("gone")
 
 func Gone() error { return fmt.Errorf("op: %w", ErrGone) }
 
-func IsGone(err error) bool { return err == ErrGone }
+func IsGone(err error) bool { return errors.Is(err, ErrGone) }
