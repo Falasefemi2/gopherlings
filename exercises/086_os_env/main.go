@@ -6,8 +6,9 @@ package main
 import "os"
 
 func Env() string {
-	if os.Getenv("APP_ENV") == "" {
-		return "prod"
+	value, ok := os.LookupEnv("APP_ENV")
+	if !ok {
+		return "dev"
 	}
-	return os.Getenv("APP_ENV")
+	return value
 }

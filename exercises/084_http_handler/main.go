@@ -3,8 +3,11 @@
 // TODO: answer 200 with exactly "hello".
 package main
 
-import "net/http"
+import (
+	"fmt"
+	"net/http"
+)
 
 func Hello(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusNotFound)
+	fmt.Fprint(w, "hello")
 }

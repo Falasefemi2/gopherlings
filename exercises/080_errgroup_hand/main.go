@@ -3,17 +3,21 @@
 // TODO: return the first non-nil error (if any).
 package main
 
-import "sync"
+import (
+	"context"
+
+	"golang.org/x/sync/errgroup"
+)
 
 func RunAll(fs []func() error) error {
-	var wg sync.WaitGroup
+	g, _ := errgroup.WithContext(context.Background())
+
 	for _, f := range fs {
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			_ = f()
-		}()
+		f := f // capture this iteration's function
+		g.Go(func() error {
+			return f()
+		})
 	}
-	wg.Wait()
-	return nil
+
+	return g.Wait()
 }

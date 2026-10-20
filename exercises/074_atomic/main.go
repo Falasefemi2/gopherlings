@@ -5,7 +5,6 @@
 package main
 
 import (
-	"runtime"
 	"sync/atomic"
 )
 
@@ -14,9 +13,10 @@ func AtomicTotal(n int) int64 {
 	done := make(chan struct{}, n)
 	for i := 0; i < n; i++ {
 		go func() {
-			tmp := c
-			runtime.Gosched()
-			c = tmp + 1
+			atomic.AddInt64(&c, 1)
+			// tmp := c
+			// runtime.Gosched()
+			// c = tmp + 1
 			done <- struct{}{}
 		}()
 	}

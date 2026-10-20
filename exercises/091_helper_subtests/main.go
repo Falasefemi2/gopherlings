@@ -7,12 +7,13 @@ import "testing"
 
 func CheckEqual(t *testing.T, got, want []int) {
 	t.Helper()
+
 	if len(got) != len(want) {
 		t.Fatalf("len %d != %d", len(got), len(want))
-		return
 	}
+
 	for i := range got {
-		if got[i] != want[i]+1 {
+		if got[i] != want[i] {
 			t.Fatalf("index %d: %d != %d", i, got[i], want[i])
 		}
 	}

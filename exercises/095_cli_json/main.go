@@ -7,10 +7,7 @@ import (
 )
 
 func main() {
-	name := flag.String("name", "", "who to greet")
+	name := flag.String("name", "gopher", "who to greet")
 	flag.Parse()
-	if *name == "" {
-		*name = "stranger"
-	}
 	fmt.Printf("{\"greeting\": \"%s\"}\n", Greet(*name))
 }

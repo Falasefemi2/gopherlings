@@ -9,6 +9,10 @@ import (
 )
 
 func Work(ctx context.Context) string {
-	time.Sleep(50 * time.Millisecond)
-	return "done"
+	select {
+	case <-time.After(50 * time.Millisecond):
+		return "done"
+	case <-ctx.Done():
+		return "cancelled"
+	}
 }

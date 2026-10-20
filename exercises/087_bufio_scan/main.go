@@ -5,6 +5,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"strings"
 )
 
@@ -12,7 +13,10 @@ func Lines(s string) int {
 	sc := bufio.NewScanner(strings.NewReader(s))
 	n := 0
 	for sc.Scan() {
-		n += len(sc.Text())
+		n++
+	}
+	if err := sc.Err(); err != nil {
+		fmt.Println("Error", err)
 	}
 	return n
 }

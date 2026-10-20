@@ -9,6 +9,10 @@ import (
 )
 
 func Fetch(ctx context.Context) error {
-	time.Sleep(200 * time.Millisecond)
-	return nil
+	select {
+	case <-time.After(200 * time.Millisecond):
+		return nil
+	case <-ctx.Done():
+		return ctx.Err()
+	}
 }

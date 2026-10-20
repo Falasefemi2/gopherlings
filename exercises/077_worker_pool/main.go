@@ -17,7 +17,7 @@ func Pool(jobs []int) []int {
 		go func() {
 			defer wg.Done()
 			for t := range jc {
-				res[t.i] = t.v
+				res[t.i] = t.v * 2
 			}
 		}()
 	}

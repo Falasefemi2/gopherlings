@@ -8,7 +8,8 @@ func Closures() []int {
 	var fns []func() int
 	i := 0
 	for ; i < 3; i++ {
-		fns = append(fns, func() int { return i })
+		v := i
+		fns = append(fns, func() int { return v })
 	}
 	out := []int{fns[0](), fns[1](), fns[2]()}
 	return out

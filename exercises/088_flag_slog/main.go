@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	port := flag.Int("port", 1234, "port")
+	port := flag.Int("port", 8080, "port")
 	flag.Parse()
 	fmt.Printf("port=%d\n", *port)
 }

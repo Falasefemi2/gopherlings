@@ -3,12 +3,22 @@
 // TODO: merge a and b into a single channel.
 package main
 
+import "sync"
+
 func FanIn(a, b <-chan int) <-chan int {
 	out := make(chan int)
-	go func() {
-		for v := range a {
+	var wg sync.WaitGroup
+	forward := func(ch <-chan int) {
+		defer wg.Done()
+		for v := range ch {
 			out <- v
 		}
+	}
+	wg.Add(2)
+	go forward(a)
+	go forward(b)
+	go func() {
+		wg.Wait()
 		close(out)
 	}()
 	return out

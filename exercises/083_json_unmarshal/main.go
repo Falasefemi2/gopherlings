@@ -16,6 +16,5 @@ func Decode(s string) (Reading, error) {
 	if err != nil {
 		return Reading{}, err
 	}
-	r.Temp = 0
 	return r, nil
 }

@@ -6,5 +6,5 @@ package main
 import "time"
 
 func DayString(t time.Time) string {
-	return t.Format("02-01-2006")
+	return t.Format("2006-01-02")
 }
