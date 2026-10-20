@@ -6,14 +6,15 @@ package main
 import "sync"
 
 func Count10() int {
-	var mu sync.Mutex
+	var wg sync.WaitGroup
 	n := 0
-	for i := 0; i < 10; i++ {
-		go func() {
-			mu.Lock()
+
+	wg.Go(func() {
+		for i := 0; i < 10; i++ {
 			n++
-			mu.Unlock()
-		}()
-	}
+		}
+	})
+
+	wg.Wait()
 	return n
 }

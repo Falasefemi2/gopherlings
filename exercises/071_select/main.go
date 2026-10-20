@@ -6,6 +6,12 @@ package main
 import "time"
 
 func Race(fast, slow <-chan string) string {
-	time.Sleep(5 * time.Millisecond)
-	return <-slow
+	select {
+	case msg1 := <-fast:
+		return msg1
+	case msg2 := <-slow:
+		return msg2
+	case <-time.After(5 * time.Millisecond):
+		return "timeout"
+	}
 }

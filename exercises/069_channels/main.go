@@ -9,6 +9,7 @@ func Produce() []int {
 		for i := 1; i <= 3; i++ {
 			ch <- i
 		}
+		close(ch)
 	}()
 	var out []int
 	for v := range ch {

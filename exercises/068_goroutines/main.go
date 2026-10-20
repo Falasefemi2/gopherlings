@@ -4,11 +4,13 @@
 package main
 
 func SumAsync(xs []int) int {
-	sum := 0
+	sumChan := make(chan int)
 	go func() {
+		sum := 0
 		for _, x := range xs {
 			sum += x
 		}
+		sumChan <- sum
 	}()
-	return sum
+	return <-sumChan
 }
